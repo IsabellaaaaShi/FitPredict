@@ -1,0 +1,165 @@
+<style>
+    .landing-container {
+      background-color: rgba(249, 239, 229, 1);
+      display: flex;
+      padding: 0 0 145px;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: Noto Sans, sans-serif;
+      font-weight: 500;
+    }
+    
+    .nav-header {
+      background-color: transparent;
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      overflow: hidden;
+      font-size: 18px;
+      color: rgba(72, 72, 72, 1);
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 19px 80px 10px;
+    }
+    
+    .brand-logo {
+      aspect-ratio: 3.13;
+      object-fit: contain;
+      object-position: center;
+      width: 222px;
+      max-width: 100%;
+    }
+    
+    .nav-content {
+      display: flex;
+      gap: 40px 52px;
+      flex-wrap: wrap;
+      margin: auto 0;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px 50px;
+      overflow: hidden;
+      line-height: 1;
+      justify-content: center;
+      flex-grow: 1;
+      flex-basis: auto;
+      margin: auto 0;
+    }
+    
+    .nav-link {
+      align-self: stretch;
+      gap: 10px;
+      white-space: nowrap;
+      margin: auto 0;
+    }
+    
+    .demo-button {
+      align-self: stretch;
+      border-radius: 20px;
+      gap: 10px;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1;
+      padding: 10px 20px;
+      border: 2px solid rgba(72, 72, 72, 1);
+      cursor: pointer;
+    }
+    
+    .hero-image {
+      aspect-ratio: 2.7;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      margin-top: 18px;
+    }
+    
+    .cta-button {
+      border-radius: 36px;
+      background-color: rgba(72, 152, 255, 1);
+      align-self: center;
+      margin-top: 30px;
+      width: 252px;
+      max-width: 100%;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 1);
+      text-align: center;
+      padding: 26px 38px;
+      cursor: pointer;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .landing-container {
+        padding-bottom: 100px;
+      }
+    
+      .nav-header {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+    
+      .nav-content {
+        max-width: 100%;
+      }
+    
+      .nav-menu {
+        max-width: 100%;
+      }
+    
+      .nav-link {
+        white-space: initial;
+      }
+    
+      .demo-button {
+        white-space: initial;
+      }
+    
+      .hero-image {
+        max-width: 100%;
+      }
+    
+      .cta-button {
+        padding: 0 20px;
+      }
+    }
+    </style>
+    
+    <div class="landing-container">
+      <nav class="nav-header">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1c24d7df63b2ce5b301974115b85af9ce2e9580e7946c44ac9fca25dc1ae5286?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d"
+          class="brand-logo"
+          alt="Company Logo"
+        />
+        <div class="nav-content">
+          <div class="nav-menu" role="navigation">
+            <a href="#predict" class="nav-link" tabindex="0">Predict</a>
+            <a href="#about" class="nav-link" tabindex="0">About</a>
+            <a href="#ml-model" class="nav-link" tabindex="0">ML Model</a>
+            <a href="#contact" class="nav-link" tabindex="0">Contact Us</a>
+          </div>
+          <button class="demo-button" tabindex="0">Demo</button>
+        </div>
+      </nav>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4c234e3598f2cb4d947d9719cea6b84298cedba0b29b2f5ab95a24c11599a31?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d"
+        class="hero-image"
+        alt="Hero section illustration"
+      />
+      <button class="cta-button" tabindex="0">Start Predicting</button>
+    </div>

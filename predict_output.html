@@ -1,0 +1,604 @@
+<style>
+    .user-overview {
+      max-width: 900px;
+      overflow: hidden;
+      padding: 51px 31px;
+      border: 3px solid rgba(234, 242, 254, 1);
+    }
+    
+    .overview-container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .user-info-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 51%;
+    }
+    
+    .welcome-container {
+      display: flex;
+      flex-direction: column;
+      font-family: Noto Sans, sans-serif;
+      color: rgba(72, 72, 72, 1);
+    }
+    
+    .welcome-heading {
+      font: 700 32px/1 Noto Sans, sans-serif;
+    }
+    
+    .disclaimer-text {
+      font: 400 14px/24px Noto Sans, sans-serif;
+      margin-top: 63px;
+    }
+    
+    .avatar-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 25%;
+      margin-left: 20px;
+    }
+    
+    .user-avatar {
+      aspect-ratio: 0.92;
+      object-fit: contain;
+      object-position: center;
+      width: 190px;
+      margin-top: 63px;
+    }
+    
+    .stats-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 24%;
+      margin-left: 20px;
+    }
+    
+    .stats-container {
+      display: flex;
+      margin-top: 78px;
+      gap: 9px;
+      color: rgba(72, 72, 72, 1);
+      font: 500 16px/42px Noto Sans, sans-serif;
+    }
+    
+    @media (max-width: 991px) {
+      .user-overview {
+        padding: 0 20px;
+      }
+    
+      .overview-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .user-info-column {
+        width: 100%;
+      }
+    
+      .welcome-container {
+        margin-top: 40px;
+      }
+    
+      .disclaimer-text {
+        margin-top: 40px;
+      }
+    
+      .avatar-column {
+        width: 100%;
+      }
+    
+      .user-avatar {
+        margin-top: 40px;
+      }
+    
+      .stats-column {
+        width: 100%;
+      }
+    
+      .stats-container {
+        margin-top: 40px;
+      }
+    }
+</style>
+    
+<div class="user-overview">
+    <div class="overview-container">
+    <div class="user-info-column">
+        <div class="welcome-container">
+        <h1 class="welcome-heading">Hi, Anonymous User!</h1>
+        <p class="disclaimer-text">
+            The predictions in this report are generated using machine learning
+            models. It is important to remember that they are estimates, not
+            absolute truths. Let these metrics motivate you to set achievable
+            goals and celebrate your progress along the way. Please do not rely on
+            these predictions for medical advice or major life decisions.
+            Remember, you are more than just numbers.
+        </p>
+        </div>
+    </div>
+    <div class="avatar-column">
+        <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/ffa2f8da22089c421231f1d584f246ac03865622e3ad684d3ec8e7b8240fcc9f?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d"
+        class="user-avatar"
+        alt="User profile avatar"
+        />
+    </div>
+    <div class="stats-column">
+        <div class="stats-container">
+        <div>
+            Sex:
+            <br />
+            Age:
+            <br />
+            Weight:
+            <br />
+            Height:
+        </div>
+        <div>
+            Female
+            <br />
+            22
+            <br />
+            140 lbs
+            <br />
+            5 feet 4 inches
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<style>
+    .metrics-container {
+        display: flex;
+        max-width: 900px;
+        flex-direction: column;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 80px;
+        border: 3px solid rgba(234, 242, 254, 1);
+    }
+    
+    .metrics-wrapper {
+        display: flex;
+        width: 100%;
+        max-width: 685px;
+        flex-direction: column;
+    }
+    
+    .metrics-title {
+        color: rgba(72, 72, 72, 1);
+        text-align: center;
+        align-self: center;
+        font: 700 18px/1 Noto Sans, sans-serif;
+    }
+    
+    .metrics-grid {
+        margin-top: 38px;
+    }
+    
+    .metrics-row {
+        gap: 20px;
+        display: flex;
+    }
+    
+    .metric-column {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+        width: 33%;
+    }
+    
+    .metric-card {
+        border-radius: 20px;
+        background-color: rgba(72, 152, 255, 1);
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        overflow: hidden;
+        font-family: Noto Sans, sans-serif;
+        color: rgba(255, 255, 255, 1);
+        margin: 0 auto;
+        padding: 23px 22px;
+        border: 3px solid rgba(169, 220, 241, 1);
+    }
+    
+    .metric-header {
+        display: flex;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    
+    .metric-title {
+        flex-grow: 1;
+    }
+    
+    .metric-icon {
+        aspect-ratio: 1;
+        object-fit: contain;
+        object-position: center;
+        width: 15px;
+        margin: auto 0;
+    }
+    
+    .metric-value-wrapper {
+        align-self: start;
+        display: flex;
+        margin-top: 46px;
+        gap: 10px;
+        white-space: nowrap;
+    }
+    
+    .metric-value {
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 0.6;
+    }
+    
+    .metric-unit {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        align-self: start;
+        margin-top: 11px;
+    }
+    
+    @media (max-width: 991px) {
+        .metrics-container {
+        padding: 0 20px;
+        }
+    
+        .metrics-wrapper {
+        max-width: 100%;
+        }
+    
+        .metrics-grid {
+        max-width: 100%;
+        }
+    
+        .metrics-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        }
+    
+        .metric-column {
+        width: 100%;
+        margin-left: 0;
+        }
+    
+        .metric-card {
+        margin-top: 20px;
+        padding: 0 20px;
+        }
+    
+        .metric-value-wrapper {
+        margin-top: 40px;
+        white-space: initial;
+        }
+    }
+    </style>
+    
+    <div class="metrics-container">
+        <div class="metrics-wrapper">
+        <h2 class="metrics-title">Basic Body Data Prediction</h2>
+        <div class="metrics-grid">
+            <div class="metrics-row">
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Body Fat Percentage</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/726ac51d60354cc69215800615b1f30b0676f3a1fc94d7e3bf54b556683c8da3?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="Body fat percentage icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">27.1</span>
+                    <span class="metric-unit">%</span>
+                </div>
+                </div>
+            </div>
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Body Fat Weight</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/64c17cb218a1fce5de48a10cd502ff95ecb40385f66514d1f142401a64af35f1?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="Body fat weight icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">37.9</span>
+                    <span class="metric-unit">lbs</span>
+                </div>
+                </div>
+            </div>
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Fat Free Body Weight</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e457a520ac9ad0ddae825cf9abfa82917d42957281b4b81b51727eee5cfc171?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="Fat free body weight icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">102.1</span>
+                    <span class="metric-unit">lbs</span>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="metrics-row">
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Body Mass Index (BMI)</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/389db8df9b73929b0981aa2959dd470c36c47e10907352660acab053fa008068?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="BMI icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">24.0</span>
+                    <span class="metric-unit">%</span>
+                </div>
+                </div>
+            </div>
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Body Metabolic Rate (BMR)</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9b59750157ef5ff649d7703c19f19346f4dd3f3733f2a140355229c30098ad8?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="BMR icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">1348</span>
+                    <span class="metric-unit">calories/day</span>
+                </div>
+                </div>
+            </div>
+            <div class="metric-column">
+                <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Total Body Water</span>
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/1852fe5e194674a5353df23a67840daa656d10532fa141d0a08a824e95cc23d0?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" class="metric-icon" alt="Body water icon" />
+                </div>
+                <div class="metric-value-wrapper">
+                    <span class="metric-value">89.8</span>
+                    <span class="metric-unit">lbs</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <style>
+        .workout-prediction-container {
+          display: flex;
+          max-width: 900px;
+          flex-direction: column;
+          overflow: hidden;
+          padding: 54px 34px 11px 80px;
+          border: 3px solid rgba(234, 242, 254, 1);
+        }
+        
+        .section-title {
+          color: rgba(72, 72, 72, 1);
+          text-align: center;
+          align-self: center;
+          font: 700 18px/1 Noto Sans, sans-serif;
+        }
+        
+        .content-wrapper {
+          align-self: end;
+          margin-top: 34px;
+          width: 100%;
+          max-width: 759px;
+        }
+        
+        .metrics-grid {
+          gap: 20px;
+          display: flex;
+        }
+        
+        .metrics-column {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 55%;
+        }
+        
+        .metrics-container {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          margin: 4px -56px 0 0;
+        }
+        
+        .metrics-row {
+          gap: 20px;
+          display: flex;
+        }
+        
+        .metric-card {
+          border-radius: 20px;
+          background-color: rgba(72, 152, 255, 1);
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          overflow: hidden;
+          align-items: start;
+          font-family: Noto Sans, sans-serif;
+          color: rgba(255, 255, 255, 1);
+          margin: 0 auto;
+          padding: 26px 22px;
+          border: 3px solid rgba(169, 220, 241, 1);
+        }
+        
+        .metric-header {
+          display: flex;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 24px;
+        }
+        
+        .metric-title {
+          flex-basis: auto;
+        }
+        
+        .metric-icon {
+          aspect-ratio: 1;
+          object-fit: contain;
+          object-position: center;
+          width: 15px;
+          margin: auto 0;
+        }
+        
+        .metric-value {
+          font-size: 40px;
+          font-weight: 900;
+          line-height: 0.6;
+          margin-top: 46px;
+        }
+        
+        .metric-unit {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 24px;
+          align-self: start;
+          margin-top: 11px;
+        }
+        
+        .metric-value-wrapper {
+          align-self: start;
+          display: flex;
+          margin-top: 46px;
+          gap: 10px;
+          white-space: nowrap;
+        }
+        
+        .frequency-metric {
+          border-radius: 20px;
+          background-color: rgba(72, 152, 255, 1);
+          display: flex;
+          margin-top: 20px;
+          width: 215px;
+          max-width: 100%;
+          flex-direction: column;
+          overflow: hidden;
+          font-family: Noto Sans, sans-serif;
+          color: rgba(255, 255, 255, 1);
+          padding: 23px 9px 23px 22px;
+          border: 3px solid rgba(169, 220, 241, 1);
+        }
+        
+        .image-column {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 45%;
+          margin-left: 20px;
+        }
+        
+        .workout-image {
+          aspect-ratio: 0.97;
+          object-fit: contain;
+          object-position: center;
+          width: 100%;
+          flex-grow: 1;
+        }
+        
+        @media (max-width: 991px) {
+          .workout-prediction-container {
+            padding: 0 20px;
+          }
+          
+          .content-wrapper {
+            max-width: 100%;
+          }
+          
+          .metrics-grid {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+          }
+          
+          .metrics-column {
+            width: 100%;
+          }
+          
+          .metrics-container {
+            max-width: 100%;
+          }
+          
+          .metrics-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+          }
+          
+          .metric-card {
+            margin-top: 20px;
+            padding: 0 20px;
+          }
+          
+          .metric-value-wrapper {
+            margin-top: 40px;
+            white-space: initial;
+          }
+          
+          .frequency-metric {
+            padding-left: 20px;
+          }
+          
+          .image-column {
+            width: 100%;
+          }
+        }
+        </style>
+        
+        <div class="workout-prediction-container">
+          <h2 class="section-title">Workout Prediction</h2>
+          <div class="content-wrapper">
+            <div class="metrics-grid">
+              <div class="metrics-column">
+                <div class="metrics-container">
+                  <div class="metrics-row">
+                    <div class="metric-card">
+                      <div class="metric-header">
+                        <span class="metric-title">Best Workout Type</span>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ac41687c1cf312d71a9e41a57a9d0cba8ec9275c0d24efc63405f02814e8745?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="" class="metric-icon" />
+                      </div>
+                      <div class="metric-value">YOGA</div>
+                    </div>
+                    <div class="metric-card">
+                      <div class="metric-header">
+                        <span class="metric-title">Best Workout Duration</span>
+                        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/541026e2ffc72e71798b452959e61ecfc2d96df3df9eb6a131656174bdb8d459?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="" class="metric-icon" />
+                      </div>
+                      <div class="metric-value-wrapper">
+                        <span class="metric-value">70</span>
+                        <span class="metric-unit">min</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="frequency-metric">
+                    <div class="metric-header">
+                      <span class="metric-title">Best Workout Frequency</span>
+                      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/0b895d16cf57844534619760543e374400fca58cfb0a080fa90644483b992de0?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="" class="metric-icon" />
+                    </div>
+                    <div class="metric-value-wrapper">
+                      <span class="metric-value">3</span>
+                      <span class="metric-unit">times/week</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="image-column">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/2481cfab9e267528989ecf01215a64f50835125fdd9387ac98ed8b6dc430832d?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="Workout visualization" class="workout-image" />
+              </div>
+            </div>
+          </div>
+        </div>
