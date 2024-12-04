@@ -1,208 +1,57 @@
-<style>
-    .ml-model-container {
-      background-color: rgba(249, 239, 229, 1);
-      display: flex;
-      padding: 0 0 146px;
-      flex-direction: column;
-      overflow: hidden;
-      align-items: center;
-      color: rgba(72, 72, 72, 1);
-      font: 500 16px Noto Sans, sans-serif;
-    }
-  
-    .nav-header {
-      background-color: rgba(255, 255, 255, 0);
-      align-self: stretch;
-      display: flex;
-      width: 100%;
-      gap: 20px;
-      overflow: hidden;
-      font-size: 18px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 24px 80px;
-    }
-  
-    .logo {
-      aspect-ratio: 4.03;
-      object-fit: contain;
-      width: 210px;
-    }
-  
-    .nav-content {
-      align-self: start;
-      display: flex;
-      margin-top: 7px;
-      align-items: start;
-      gap: 40px 49px;
-      flex-wrap: wrap;
-    }
-  
-    .nav-menu {
-      display: flex;
-      margin-top: 7px;
-      flex-direction: column;
-      line-height: 1;
-      flex: 1;
-      width: fit-content;
-    }
-  
-    .menu-items {
-      display: flex;
-      align-items: center;
-      gap: 40px 50px;
-      overflow: hidden;
-      justify-content: center;
-    }
-  
-    .menu-link {
-      align-self: stretch;
-      gap: 10px;
-      white-space: nowrap;
-      margin: auto 0;
-    }
-  
-    .active-link {
-      align-self: stretch;
-      gap: 10px;
-      color: rgba(72, 152, 255, 1);
-      font-weight: 900;
-      margin: auto 0;
-    }
-  
-    .menu-icon {
-      aspect-ratio: 1;
-      object-fit: contain;
-      width: 10px;
-      align-self: center;
-      margin-left: 36px;
-    }
-  
-    .demo-button {
-      align-self: stretch;
-      border-radius: 20px;
-      gap: 10px;
-      white-space: nowrap;
-      text-align: center;
-      line-height: 1;
-      padding: 10px 20px;
-      border: 2px solid rgba(72, 72, 72, 1);
-    }
-  
-    .hero-image {
-      aspect-ratio: 4.05;
-      object-fit: contain;
-      width: 449px;
-      margin-top: 34px;
-    }
-  
-    .dataset-description {
-      font-weight: 700;
-      line-height: 28px;
-      margin-top: 32px;
-      width: 1080px;
-    }
-  
-    .distribution-image {
-      aspect-ratio: 1.56;
-      object-fit: contain;
-      width: 1080px;
-    }
-  
-    .distribution-title {
-      font-weight: 400;
-      line-height: 28px;
-      text-align: center;
-    }
-  
-    .model-description {
-      font-weight: 700;
-      line-height: 28px;
-      margin-top: 6px;
-      width: 1080px;
-    }
-  
-    .cta-button {
-      border-radius: 36px;
-      background-color: rgba(72, 152, 255, 1);
-      margin-top: 76px;
-      width: 252px;
-      font-size: 24px;
-      color: rgba(255, 255, 255, 1);
-      text-align: center;
-      padding: 26px 38px;
-    }
-  
-    .text-bold {
-      font-weight: 900;
-    }
-  
-    .text-normal {
-      font-weight: 400;
-    }
-  
-    @media (max-width: 991px) {
-      .ml-model-container {
-        padding-bottom: 100px;
-      }
-  
-      .nav-header {
-        max-width: 100%;
-        padding: 0 20px;
-      }
-  
-      .nav-content {
-        max-width: 100%;
-      }
-  
-      .nav-menu {
-        max-width: 100%;
-      }
-  
-      .menu-items {
-        max-width: 100%;
-      }
-  
-      .menu-link {
-        white-space: initial;
-      }
-  
-      .demo-button {
-        white-space: initial;
-      }
-  
-      .hero-image,
-      .distribution-image,
-      .dataset-description,
-      .model-description {
-        max-width: 100%;
-      }
-  
-      .cta-button {
-        margin-top: 40px;
-        padding: 0 20px;
-      }
-    }
-  </style>
-  
-  <div class="ml-model-container">
-    <nav class="nav-header">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/312946637735e1bd40567985de97bc0539356c35d556d0ae0f7c2023104230c7?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="Company Logo" class="logo" />
-      <div class="nav-content">
-        <div class="nav-menu">
-          <div class="menu-items">
-            <a href="#predict" class="menu-link">Predict</a>
-            <a href="#about" class="menu-link">About</a>
-            <a href="#ml-model" class="active-link">ML Model</a>
-            <a href="#contact" class="menu-link">Contact Us</a>
-          </div>
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/df2317e498890eb828f8814a8528ed01fe857f6c15e76df52f624bfebb4b3af9?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="" class="menu-icon" />
-        </div>
-        <button class="demo-button">Demo</button>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+    <!-- Set Webpage Title and Icon (Favicon)-->
+    <title>FitPredict</title>
+    <link rel="icon" type="image/x-icon" href="./assets/report logi.png">
+
+    <!-- Webpage Setup-->
+    <meta charset="UTF-8">
+
+    <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="js/script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  </head>
+
+  <!-- Main Page of My Portfolio Website-->
+  <body>
+
+    <!-- Header of the Webpage. Includes title and navigation-->
+    <header class="nav-header">
+      
+      <!-- Set the logo of the webpage, that will direct back to the index.html main page-->
+      <div class = "brand-logo">
+        <a href="./index.html">
+          <img src="./assets/header logo.png" alt="FitPredict logo, clicking takes to home page" class="brand-logo">
+        </a>
       </div>
-    </nav>
-  
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d816431dad9408bf676cb0667a194095c9a43bc1e27b908f5170aafd2eddd3c8?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="ML Model Visualization" class="hero-image" />
+
+      <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections-->
+        <nav class="nav-content">
+          <div class="nav-menu" role="navigation">
+            <a href="./predict_input.html" class="nav-link">Predict</a>
+            <a href="./about.html" class="nav-link">About</a>
+            <a href="./model.html" class="nav-link nav-item-active">ML Model</a>
+            <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
+            <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
+          </div>
+        </nav>
+    </header>
+
+    <!-- Display informational image -->
+    <div id="aboutLogoImage">
+      <img
+        src="./assets/about logo.png"
+        class="about-image"
+        alt="Information Text"
+      />
+    </div>
   
     <div class="dataset-description">
       <span class="text-bold">The Dataset</span>
@@ -214,11 +63,13 @@
       </span>
     </div>
   
-    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/ccf0a9acf32468f369a116ab9bb664c6ea7e7dec67c81dfbf94a73ce438187d1?placeholderIfAbsent=true&apiKey=282478aca6754559bb050a8f45ae639d" alt="Dataset Distribution Graph" class="distribution-image" />
-    <h2 class="distribution-title">Dataset Distribution</h2>
+    <img src="./assets/Body Fat Percentage Distribution.png" alt="Dataset Distribution Graph" class="distribution-image" />
+    <span class="distribution-title">Dataset Distribution</span>
   
     <div class="model-description">
+
       <span class="text-bold">The Model</span>
+
       <br />
       <span class="text-normal">
         A Random Forest Regressor was used to train scikit-learn models for
@@ -231,9 +82,57 @@
         numerical data. Additionally, it is robust to noise and missing data,
         making it a reliable choice for real-world datasets.
       </span>
-      <!-- Rest of the model description content remains identical to original, 
-           just wrapped in appropriate text-normal/text-bold spans -->
+
+      <br /><br />
+      <span class="text-bold">Body Fat Prediction</span>
+
+      <br />
+      <span class="text-normal">
+        For body fat prediction, the model achieves an overall R² of 0.89, indicating high accuracy. For males, it explains 73% of the variance in body fat (R² = 0.73) with a Mean Absolute Error (MAE) of 2.25. For females, the R² improves to 0.85, and the MAE is lower at 1.82, demonstrating better performance for predicting body fat in women.
+      </span>
+
+      <br />
+      <span class="text-normal">
+        The predictions were most influenced by gender (weight = 0.46), followed by weight (0.34), age (0.11), and height (0.10), indicating that gender and weight are the strongest predictors of body fat percentage.
+      </span>
+
+      <br /><br />
+      <span class="text-bold">Other Metric Calculation</span>
+
+      <br />
+      <span class="text-normal">
+        Referencing reliable research paper equations, the other body metrics are calculated and displayed on the report page:
+        <ul>
+          <li>Body Fat Weight = Body Fat Percentage × Weight</li>
+          <li>Fat Free Body Weight = (1 - Body Fat Percentage) × Weight</li>
+          <li>Body Mass Index (BMI) = Weight / Height² [metric]</li>
+          <li>Body Metabolic Rate (BMR) for Female = 447.593 + (9.247 × Weight) + (3.098 × Height) - (4.330 × Age)</li>
+          <li>Body Metabolic Rate (BMR) for Male = 88.362 + (13.397 × Weight) + (4.799 × Height) - (5.677 × Age)</li>
+          <li>Total Body Water = (Fat Free Body Weight × 0.73) / Weight</li>
+        </ul>
+      </span>
+
+      <br />
+      <span class="text-bold">Workout Prediction</span>
+
+      <br />
+      <span class="text-normal">
+        For workout metrics, the predictions were less accurate. Workout frequency and session duration had moderate R² scores of 0.34 and 0.52, indicating limited predictive reliability. Predicting workout type was particularly challenging, with low precision and recall across categories and an overall accuracy of 23%, reflecting the difficulty in distinguishing workout types using the available features.
+      </span>
+
+      <br />
+      <span class="text-normal">
+        For workout metrics, the importance of features varied across prediction tasks:
+        <ul>
+          <li><strong>Workout Type:</strong> Weight (0.29) and body fat percentage (0.28) were the most significant predictors, followed by height (0.21) and age (0.21), with gender (0.01) having minimal impact.</li>
+          <li><strong>Workout Frequency:</strong> Body fat percentage (0.58) was the dominant factor, significantly outweighing weight (0.17), height (0.12), and age (0.12), while gender (0.006) contributed very little.</li>
+          <li><strong>Workout Session Duration:</strong> Body fat percentage (0.63) was again the strongest predictor, followed by weight (0.14), height (0.11), and age (0.11), with gender (0.008) having negligible influence.</li>
+        </ul>
+      </span>
     </div>
-  
-    <button class="cta-button" tabindex="0">Start Predicting</button>
-  </div>
+
+    <!-- Navigate to the Predict Page with Simple Button -->
+    <a class="predict-button" href="./predict_input.html">Start Predicting</a>
+
+  </body>
+</html>
