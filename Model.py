@@ -1,24 +1,30 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
-import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
-import os
-
-# Set working directory to the script's location
-script_dir = os.path.dirname(os.path.realpath(__file__))  # Get script's directory
-os.chdir(script_dir)  # Change the current working directory
-print("Current working directory:", os.getcwd())
-
-# Now, your file paths will work relative to the script's location
-file_path = 'data.csv'
-data = pd.read_csv(file_path)
+# Try to ignore warnings (known error in pyscript)
+# https://github.com/pandas-dev/pandas/issues/54466
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore",
+        message=r'\nPyarrow will become',
+        category=DeprecationWarning,
+    )
+    import pandas as pd
+warnings.filterwarnings("ignore")
 
 
-import pandas as pd
+
+
+# https://docs.pyscript.net/2024.11.1/user-guide/dom/
+from pyscript import window, document
+
+loading_el = document.querySelector("#loading-screen")
+result_el = document.querySelector("#model-results")
+
+loading_el.classList.remove("hidden")
+result_el.classList.add("hidden")
+
+
+
+
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
@@ -26,9 +32,23 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
 
+
+
+
+
+# https://docs.pyscript.net/2024.11.1/user-guide/configuration/
+# https://docs.pyscript.net/2024.11.1/user-guide/dom/#working-with-javascript
+from pyscript.js_modules import outputScript
+
+
+
+
+
+def model_init():
+    print("initializing model")
+
 # Load the dataset
-file_path = 'data.csv'
-data = pd.read_csv(file_path)
+data = pd.read_csv("data.csv")
 
 # Selecting relevant features and target variables
 columns = ['Gender', 'Age', 'Weight', 'Height', 'Body Fat Percentage', 'Workout Type', 'Workout Frequency', 'Session Duration']
@@ -121,11 +141,11 @@ def predict_user_metrics(user_data):
 
 # User Input
 print("Enter your details to predict metrics:")
-user_name = input("Please enter your name: ").strip()
-user_gender = input("Gender (Male/Female): ").strip().lower()
-user_age = int(input("Age: "))
-user_weight = float(input("Weight (kg): "))
-user_height = float(input("Height (m): "))
+user_name = outputScript.nickname #"test" #input("Please enter your name: ").strip()
+user_gender = outputScript.sex #"male" #input("Gender (Male/Female): ").strip().lower()
+user_age = int(outputScript.age) #int(50)) #int(input("Age: "))
+user_weight = float(outputScript.weight) #float(50) #float(input("Weight (kg): "))
+user_height = float(outputScript.height) #float(1.8) #float(input("Height (m): "))
 
 # Encode gender input
 user_gender_encoded = 0 if user_gender == 'male' else 1
@@ -160,14 +180,12 @@ def calculate_bmr(weight, height, age, gender):
     else:
         return round(447.593 + (9.247 * weight) + (3.098 * height * 100) - (4.330 * age), 2)
 
-
 # Calculate Metrics
 user_bmi = calculate_bmi(user_weight, user_height)
 user_body_fat_weight = calculate_body_fat_weight(user_weight, predicted_body_fat)
 user_fat_free_body_weight = calculate_fat_free_body_weight(user_weight, user_body_fat_weight)
 user_body_water_percentage = calculate_body_water_percentage(user_weight,user_fat_free_body_weight)
 user_bmr = calculate_bmr(user_weight, user_height, user_age, user_gender)
-
 
 # Output Results
 
@@ -189,3 +207,31 @@ similar_examples = df_workout.iloc[np.argsort(distances)[:3]]
 print("\nSimilar examples from our training data:")
 for idx, row in similar_examples.iterrows():
     print(f"- Gender: {row['Gender']}, Age: {row['Age']}, Weight: {row['Weight']} kg, Height: {row['Height']} m → Body Fat: {row['Body Fat Percentage']:.2f}%")
+
+
+
+
+
+
+
+
+bodyfatpercent_element = document.querySelector("#result-bodyfatpercent")
+bodyfatpercent_element.innerText = f"{predicted_body_fat:.2f}"
+
+bodyfatweight_element = document.querySelector("#result-bodyfatweight")
+bodyfatweight_element.innerText = user_body_fat_weight
+
+fatfreebodyweight_element = document.querySelector("#result-fatfreebodyweight")
+fatfreebodyweight_element.innerText = user_fat_free_body_weight
+
+bmi_element = document.querySelector("#result-bmi")
+bmi_element.innerText = user_bmi
+
+bmr_element = document.querySelector("#result-bmr")
+bmr_element.innerText = user_bmr
+
+bodywater_element = document.querySelector("#result-bodywater")
+bodywater_element.innerText = f"{user_body_water_percentage:.2f}"
+
+loading_el.classList.add("hidden")
+result_el.classList.remove("hidden")

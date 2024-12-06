@@ -13,8 +13,6 @@
     <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
     <link rel="stylesheet" href="css/style.css">
 
-    <script defer src="js/script.js"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
   </head>
@@ -45,7 +43,7 @@
 
     </header>
 
-    <form id="modelInputForm" action="./predict_output.html">
+    <form id="modelInputForm" action="./predict_output.html" method="GET">
     
       <div class="survey-container">
 
@@ -56,7 +54,7 @@
           <div class="tab-inactive">Body Report</div>
         </div>
         
-        <!-- -->
+        <!--
         <div class="input-section">
 
             <div class="input-header">
@@ -69,12 +67,13 @@
             </div>
 
         </div>
+         -->
 
         <!-- https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only --> 
         <div class="input-section">
 
           <div class="input-header">
-            (2) Basic Information About You
+            (1) Basic Information About You
             <span class="required">*</span>
           </div>
           
@@ -91,19 +90,23 @@
             <input type="number" id="age" name="age" class="input-field" required placeholder="years"min="0"/>
     
             <label for="weight" class="form-label">Weight</label>
-            <input inputmode = "decimal" id="weight" name="weight" class="input-field" required placeholder="lbs" min="0"/>
+            <input inputmode = "decimal" id="weight" name="weight" class="input-field" required placeholder="kgs" min="0"/>
     
+            <label for="height" class="form-label">Height</label>
+            <input inputmode = "decimal" id="height" name="height" class="input-field" placeholder="m" required min="0"/>
+<!-- 
             <label for="height" class="form-label">Height</label>
             <div class="height-field" id="height">
               <input type="number" id="height-feet" name="height-feet" placeholder="ft" required min="0"/>
               <input type="number" id="height-inches" name="height-inches" placeholder="in" required min="0" max="11"/>
             </div>
+-->
           </div>
         </div>
     
         <div class="input-section">
           <div class="input-header">
-            (3) Optional Information About You
+            (2) Optional Information About You
           </div>
 
           <div class ="nickname-wrapper">

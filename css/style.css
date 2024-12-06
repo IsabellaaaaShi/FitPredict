@@ -1,4 +1,4 @@
-/* Portfolio Style Guide
+/* Website Style Guide
 
 ---- COLOR DEFINITION ----
 Blue*:         #rgba(72, 152, 255, 1);
@@ -8,7 +8,6 @@ Background*:   #F9EFE5
 Text:         Noto Sans
 
 */
-
 
 /*----------------------------------------------------------------------------------------
 GENERAL PAGE
@@ -159,11 +158,11 @@ body {
 .stats-container {
     display: flex;
     flex-direction: row;
-    margin-top: 40px;
     width: 700px;
     max-width: 100%;
     align-items: start;
     justify-content: space-between;
+    margin-top: 2%;
 }
 
 .stat-item {
@@ -456,7 +455,7 @@ body {
     justify-content: center;
     padding: 53px 80px;
     border: 3px solid rgba(234, 242, 254, 1);
-    width: 50%;
+    width: 80%;
 }
 
 .required {
@@ -495,6 +494,11 @@ body {
     margin-left: 32px;
 }
 
+.load-message {
+    font-family: Noto Sans, sans-serif;
+    font-size: 24px;
+}
+
 /* .unit-selector {
     border-radius: 25px;
     background-color: rgba(169, 220, 241, 1);
@@ -521,3 +525,93 @@ body {
     padding: 11px 36px;
     border: 3px solid rgba(169, 220, 241, 1);
 } */
+
+
+.overview-container {
+    display: flex;
+    margin-top: 45px;
+    flex-direction: row;
+    align-items: center;
+    font-family: Noto Sans, sans-serif;
+    justify-content: space-between;
+    padding: 20px 20px;
+    border: 3px solid rgba(234, 242, 254, 1);
+    width: 80%;
+}
+
+.user-info-column {
+display: flex;
+flex-direction: column;
+line-height: normal;
+width: 40%
+}
+
+.welcome-container {
+display: flex;
+flex-direction: column;
+font-family: Noto Sans, sans-serif;
+color: rgba(72, 72, 72, 1);
+
+}
+
+.welcome-heading {
+font: 700 32px/1 Noto Sans, sans-serif;
+}
+
+.disclaimer-text {
+font: 400 14px/24px Noto Sans, sans-serif;
+margin-top: 10px;
+text-align: justify;
+}
+
+.avatar-column {
+display: flex;
+flex-direction: column;
+line-height: normal;
+width: 20%
+}
+
+.user-avatar {
+aspect-ratio: 0.92;
+object-fit: contain;
+object-position: center;
+width: 190px;
+margin-top: 63px;
+}
+
+.stats-column {
+display: flex;
+flex-direction: column;
+line-height: normal;
+width: 20%;
+margin-left: 20px;
+}
+
+.user-input-container {
+    display: flex;
+    gap: 20px;
+    color: rgba(72, 72, 72, 1);
+    font: 500 16px/42px Noto Sans, sans-serif;
+}
+
+.results-container {
+    display: flex;
+    margin-top: 45px;
+    flex-direction: row;
+    align-items: center;
+    font-family: Noto Sans, sans-serif;
+    justify-content: center;
+    padding: 20px 20px;
+    border: 3px solid rgba(234, 242, 254, 1);
+    width: 80%;
+}
+
+.model-predictions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}

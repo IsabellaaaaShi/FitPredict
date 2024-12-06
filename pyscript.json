@@ -1,0 +1,11 @@
+{
+    "packages": ["pandas", "scikit-learn", "numpy"],
+    "files": {
+      "./data.csv": "./data.csv"
+    },
+    "js_modules": {
+      "main": {
+          "./js/predict_output.js": "outputScript"
+      }
+    } 
+  }
