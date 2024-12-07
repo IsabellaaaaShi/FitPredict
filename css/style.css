@@ -213,9 +213,10 @@ body {
 }
 
 .distribution-title {
-    font-size: 24px;
+    font-size: 14px;
     margin: 5px;
     text-align: center;
+    color: gray;
 }
 
 .model-description {
