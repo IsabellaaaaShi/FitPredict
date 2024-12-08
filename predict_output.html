@@ -107,9 +107,13 @@
       <div class="results-container" id="loading-screen">
 
         <div class="model-load">
-          <p class = "load-message">
-            Running Model. Please wait for the prediction.
-          </p>
+
+          <!-- https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.caster.com.br%2Fdev%2Fblue-loading-gif-transparent-1%2F&psig=AOvVaw3eAyMa-xgVJ727oK8g9Xg8&ust=1733623216931000&source=images&cd=vfe&opi=89978449&ved=0CBQQjhxqFwoTCPj12vTHlIoDFQAAAAAdAAAAABAE -->
+          <!-- <img src="./assets/loading.gif" alt="loading icon indicating model is running"> -->
+          <div id="loading-gif"></div>  
+
+          <p class = "load-message" id="load-message">Running Model. Please wait a moment.</p>
+
         </div>
   
       </div>
@@ -117,32 +121,177 @@
       <div class="results-container" id="model-results">
         
         <div class="model-predictions"> 
-          
-          <div id="output">
-            <div class="output" id="result-bodyfatpercent"></div> 
+        
+          <h2 class="metrics-title">Basic Body Data Prediction</h2>
+
+          <!-- Info Icon: https://commons.wikimedia.org/wiki/File:Circle_info_blue.svg -->
+          <div class="metrics-grid">
+            <div class="metrics-row">
+              <div class="metric-column">
+                  <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Body Fat Percentage</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for Body fat percentage" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-bodyfatpercent"></span>
+                      <span class="metric-unit">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Body Fat Weight</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for Body fat weight" />
+                      </a>  
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-bodyfatweight"></span>
+                      <span class="metric-unit">lbs</span>
+                  </div>
+                </div>
+              </div>
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Fat Free Body Weight</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for fat free body weight" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-fatfreebodyweight"></span>
+                      <span class="metric-unit">lbs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Body Mass Index (BMI)</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for bmi" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-bmi"></span>
+                      <span class="metric-unit">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Body Metabolic Rate (BMR)</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for bmr" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-bmr"></span>
+                      <span class="metric-unit">calories/day</span>
+                  </div>
+                </div>
+              </div>
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Total Body Water</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for total body water" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-bodywater"></span>
+                      <span class="metric-unit">lbs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="output">
-            <div class="output" id="result-bodyfatweight"></div> 
-          </div>
-          <div id="output">
-            <div class="output" id="result-fatfreebodyweight"></div> 
-          </div>
-          <div id="output">
-            <div class="output" id="result-bmi"></div> 
-          </div>
-          <div id="output">
-            <div class="output" id="result-bmr"></div> 
-          </div>
-          <div id="output">
-            <div class="output" id="result-bodywater"></div> 
-          </div>
+        
         </div>
 
-        <script type="py" src="./Model.py" config="./pyscript.json"></script>
-        
       </div>
 
-    </div>
+      <div class="results-container" id="fitness-results">
+        
+        <div class="model-predictions"> 
+        
+          <h2 class="metrics-title">Workout Prediction</h2>
+
+          <!-- Info Icon: https://commons.wikimedia.org/wiki/File:Circle_info_blue.svg -->
+          <div class="metrics-grid">
+            <div class="metrics-row">
+              <div class="metric-column">
+                  <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Best Workout Type</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout type" />
+                      </a>    
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-fitnesstype"></span>   
+                  </div>
+                </div>
+              </div>
+              
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Best Workout Duration</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout duration" />
+                      </a>  
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-fitnessduration"></span>
+                      <span class="metric-unit">min</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-column">
+                <div class="metric-card">
+                  <div class="metric-header">
+                      <span class="metric-title">Best Workout Frequency</span>
+                      <a href="./model.html" class="tooltip">
+                        <span class="tooltiptext">See ML Model Description</span>
+                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout frequency" />
+                      </a>   
+                  </div>
+                  <div class="metric-value-wrapper">
+                      <span class="metric-value" id="result-fitnessfreq"></span>
+                      <span class="metric-unit">times/wk</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        
+        </div>
+
+      </div>
+
+      <script type="py" src="./Model.py" config="./pyscript.json"></script>
 
   </body>
+
 </html>

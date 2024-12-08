@@ -1,3 +1,15 @@
+# https://docs.pyscript.net/2024.11.1/user-guide/dom/
+from pyscript import window, document
+
+# https://docs.pyscript.net/2024.11.1/user-guide/configuration/
+# https://docs.pyscript.net/2024.11.1/user-guide/dom/#working-with-javascript
+from pyscript.js_modules import outputScript
+
+loading_el = document.querySelector("#loading-screen")
+result_el = document.querySelector("#model-results")
+fitness_el = document.querySelector("#fitness-results")
+
+
 # Try to ignore warnings (known error in pyscript)
 # https://github.com/pandas-dev/pandas/issues/54466
 import warnings
@@ -11,37 +23,12 @@ with warnings.catch_warnings():
 warnings.filterwarnings("ignore")
 
 
-
-
-# https://docs.pyscript.net/2024.11.1/user-guide/dom/
-from pyscript import window, document
-
-loading_el = document.querySelector("#loading-screen")
-result_el = document.querySelector("#model-results")
-
-loading_el.classList.remove("hidden")
-result_el.classList.add("hidden")
-
-
-
-
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
-
-
-
-
-
-# https://docs.pyscript.net/2024.11.1/user-guide/configuration/
-# https://docs.pyscript.net/2024.11.1/user-guide/dom/#working-with-javascript
-from pyscript.js_modules import outputScript
-
-
-
 
 
 def model_init():
@@ -209,11 +196,8 @@ for idx, row in similar_examples.iterrows():
     print(f"- Gender: {row['Gender']}, Age: {row['Age']}, Weight: {row['Weight']} kg, Height: {row['Height']} m → Body Fat: {row['Body Fat Percentage']:.2f}%")
 
 
-
-
-
-
-
+loading_element = document.querySelector("#loading-gif")
+loading_element.remove()
 
 bodyfatpercent_element = document.querySelector("#result-bodyfatpercent")
 bodyfatpercent_element.innerText = f"{predicted_body_fat:.2f}"
@@ -233,5 +217,16 @@ bmr_element.innerText = user_bmr
 bodywater_element = document.querySelector("#result-bodywater")
 bodywater_element.innerText = f"{user_body_water_percentage:.2f}"
 
+fitnesstype_element = document.querySelector("#result-fitnesstype")
+fitnesstype_element.innerText = decoded_workout_type
+
+fitnesstime_element = document.querySelector("#result-fitnessduration")
+fitnesstime_element.innerText = f"{predicted_session_duration:.2f}"
+
+fitnessfreq_element = document.querySelector("#result-fitnessfreq")
+fitnessfreq_element.innerText = predicted_workout_frequency
+
+
 loading_el.classList.add("hidden")
 result_el.classList.remove("hidden")
+fitness_el.classList.remove("hidden")

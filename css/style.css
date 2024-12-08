@@ -42,6 +42,7 @@ option {
 /*----------------------------------------------------------------------------------------
 HOME PAGE
 ----------------------------------------------------------------------------------------*/
+
 body {
     display: flex;
     flex-direction: column;
@@ -100,6 +101,12 @@ body {
     font-weight: 800;
 }
 
+/* Bold and underline the current navigation link selection */
+.nav-link:hover {
+    font-weight: 800;
+    text-decoration: underline 2px rgba(72, 152, 255, 1);
+}
+
 .demo-button {
     align-self: stretch;
     border-radius: 20px;
@@ -113,6 +120,11 @@ body {
     font-size: 18px;
     color: rgba(72, 72, 72, 1);
     background-color: transparent;
+}
+
+.demo-button:hover {
+    font-weight: 800;
+    border-color:rgba(72, 152, 255, 1); 
 }
 
 .info-image {
@@ -207,16 +219,15 @@ body {
 .distribution-image {
     aspect-ratio: 1.56;
     object-fit: contain;
-    margin-top: 12px;
+    margin-top: 5px;
     width: 70%;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 
 .distribution-title {
     font-size: 14px;
     margin: 5px;
     text-align: center;
-    color: gray;
 }
 
 .model-description {
@@ -227,8 +238,19 @@ body {
     text-align: justify;
 }
 
+.model-load {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
-
+.model-load img {
+    aspect-ratio: 1;
+    width: 50px;
+    align-self: center;
+}
 
 .survey-container {
     border-radius: 30px;
@@ -343,6 +365,18 @@ body {
     padding: 14px 39px;
 }
 
+/* Select Styling with assistance from ChatGPT */
+select:invalid {
+    color: gray;
+}
+select option {
+    color: black;
+}
+select option:disabled {
+    color: gray;
+}
+/* End ChatGPT help */
+
 .unit-label {
     border-radius: 5px;
     margin-top: 6px;
@@ -408,14 +442,6 @@ body {
 .nickname-label {
     align-self: start;
     margin-top: 25px;
-}
-
-.nickname-input {
-    border-radius: 5px;
-    margin-top: 6px;
-    color: rgba(217, 217, 217, 1);
-    padding: 6px 15px;
-    border: 2px solid rgba(169, 220, 241, 1);
 }
 
 .submit-button {
@@ -598,7 +624,7 @@ margin-left: 20px;
 .results-container {
     display: flex;
     margin-top: 45px;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     font-family: Noto Sans, sans-serif;
     justify-content: center;
@@ -611,8 +637,138 @@ margin-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 80%;
 }
 
 .hidden {
     display: none;
 }
+
+
+
+
+
+
+
+
+.metrics-title {
+    color: rgba(72, 72, 72, 1);
+    text-align: center;
+    align-self: center;
+    font: 700 18px/1 Noto Sans, sans-serif;
+}
+
+.metrics-grid {
+    margin-top: 1%;
+}
+
+.fitness-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.metrics-row {
+    gap: 20px;
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.metric-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+}
+
+.metric-card {
+    aspect-ratio: 5/3;
+    border-radius: 20px;
+    background-color: rgba(72, 152, 255, 1);
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    flex-direction: column;
+    font-family: Noto Sans, sans-serif;
+    color: rgba(255, 255, 255, 1);
+    padding: 23px 22px;
+    border: 3px solid rgba(169, 220, 241, 1);
+    justify-content: space-between;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow (from ChatGPT)     */
+}
+
+.metric-header {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.metric-title {
+    flex-grow: 1;
+}
+
+.metric-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 15px;
+    margin: auto 0;
+}
+
+.metric-value-wrapper {
+    align-self: start;
+    display: flex;
+    gap: 10px;
+    white-space: nowrap;
+    justify-content: flex-end;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 0.6;
+}
+
+.metric-unit {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 24px;
+    align-self: start;
+}
+
+
+
+/* Start Tutorial Code from: */
+/* https://www.w3schools.com/css/css_tooltip.asp */
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(169, 219, 241, 0.76);
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* End Tutorial Code */

@@ -21,9 +21,18 @@ export {age, sex, height, weight, nickname};
 
 const loading_el = document.querySelector("#loading-screen")
 const result_el = document.querySelector("#model-results")
+const fitness_el = document.querySelector("#fitness-results")
 
 loading_el.classList.remove("hidden")
 result_el.classList.add("hidden")
+fitness_el.classList.add("hidden")
+
+const loadgif_el = document.querySelector("#loading-gif")
+const loadgif = document.createElement("img")
+
+loadgif.src = "./assets/loading.gif"
+
+loadgif_el.appendChild(loadgif)
 
 updateUserInputSection();
 
