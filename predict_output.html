@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
   <head>
 
     <!-- Set Webpage Title and Icon (Favicon)-->
@@ -13,9 +14,9 @@
     <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
     <script defer type="module" src="js/predict_output.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
+    <!-- Link the pyscript, it is configured with a json that links files and downloads packages.-->
     <!-- 
     Pyscript Tutorials used: 
     [1] https://github.com/Cheukting/pyscript-tutorial/blob/main/chapter_1/template.html
@@ -26,10 +27,12 @@
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
 
+    <!-- Citation for image information icon -->
+    <!-- Info Icon: https://commons.wikimedia.org/wiki/File:Circle_info_blue.svg -->
 
   </head>
 
-  <!-- Main Page of My Portfolio Website-->
+  <!-- Prediction Output Page of FitPredict Website-->
   <body>
 
     <!-- Header of the Webpage. Includes title and navigation-->
@@ -43,28 +46,32 @@
       </div>
 
       <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections-->
-        <nav class="nav-content">
-          <div class="nav-menu" role="navigation">
-            <a href="./predict_input.html" class="nav-link">Predict</a>
-            <a href="./about.html" class="nav-link">About</a>
-            <a href="./model.html" class="nav-link">ML Model</a>
-            <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
-            <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
-          </div>
-        </nav>
+      <nav class="nav-content">
+        <div class="nav-menu" role="navigation">
+          <a href="./predict_input.html" class="nav-link">Predict</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./model.html" class="nav-link">ML Model</a>
+          <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
+          <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
+        </div>
+      </nav>
 
     </header>
     
+    <!-- Setup styling for background/border of the input form -->
     <div class="survey-container">
 
-      <!-- -->
+      <!-- Setup a "progress bar" that shows what stage of the prediction you are in (in this case, the output) -->
       <div class="input-progress-container">
         <div class="tab-inactive">General Information</div>
         <p class="dash">----------------</p>
         <div class="tab-active">Body Report</div>
       </div>
 
+      <!-- Set up a section that provides a disclaimer and intro to the model output preidctions-->
       <div class="overview-container">
+
+        <!-- Disclaimer Text -->
         <div class="user-info-column">
             <div class="welcome-container">
             <h1 class="welcome-heading" id="name-info"></h1>
@@ -78,14 +85,13 @@
             </p>
             </div>
         </div>
+
+        <!-- FitPredict Logo -->
         <div class="avatar-column">
-            <img
-            loading="lazy"
-            src="./assets/report logi.png"
-            class="user-avatar"
-            alt="User profile avatar"
-            />
+            <img loading="lazy" src="./assets/report logi.png" class="user-avatar" alt="User profile avatar" />
         </div>
+
+        <!-- Repeat the user input in a stylized form, including units (metric/imperial based on user input) -->
         <div class="stats-column">
             <div class="user-input-container">
               <div>
@@ -104,6 +110,7 @@
         </div>
       </div>
 
+      <!-- Include a page section that matches the styling of the results. contains a gif and message while model is running. hidden on model complete -->
       <div class="results-container" id="loading-screen">
 
         <div class="model-load">
@@ -118,15 +125,16 @@
   
       </div>
 
+      <!-- First results section (body metrics) loads on model complete after loading message is hidden -->
       <div class="results-container" id="model-results">
         
         <div class="model-predictions"> 
         
           <h2 class="metrics-title">Basic Body Data Prediction</h2>
 
-          <!-- Info Icon: https://commons.wikimedia.org/wiki/File:Circle_info_blue.svg -->
           <div class="metrics-grid">
-            <div class="metrics-row">
+            
+              <!-- Results and title for body fat percentage -->
               <div class="metric-column">
                   <div class="metric-card">
                   <div class="metric-header">
@@ -143,6 +151,7 @@
                 </div>
               </div>
 
+              <!-- Results and title for body fat weight -->              
               <div class="metric-column">
                 <div class="metric-card">
                   <div class="metric-header">
@@ -154,10 +163,12 @@
                   </div>
                   <div class="metric-value-wrapper">
                       <span class="metric-value" id="result-bodyfatweight"></span>
-                      <span class="metric-unit">lbs</span>
+                      <span class="metric-unit">kg</span>
                   </div>
                 </div>
               </div>
+
+              <!-- Results and title for fat free body weight -->
               <div class="metric-column">
                 <div class="metric-card">
                   <div class="metric-header">
@@ -169,12 +180,12 @@
                   </div>
                   <div class="metric-value-wrapper">
                       <span class="metric-value" id="result-fatfreebodyweight"></span>
-                      <span class="metric-unit">lbs</span>
+                      <span class="metric-unit">kg</span>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="metrics-row">
+            
+              <!-- Results and title for BMI -->
               <div class="metric-column">
                 <div class="metric-card">
                   <div class="metric-header">
@@ -190,6 +201,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Results and title for BMR -->
               <div class="metric-column">
                 <div class="metric-card">
                   <div class="metric-header">
@@ -205,10 +218,12 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Results and title for body water percentage-->
               <div class="metric-column">
                 <div class="metric-card">
                   <div class="metric-header">
-                      <span class="metric-title">Total Body Water</span>
+                      <span class="metric-title">Body Water Percentage</span>
                       <a href="./model.html" class="tooltip">
                         <span class="tooltiptext">See ML Model Description</span>
                         <img src="./assets/info.png" class="metric-icon" alt="Additional information for total body water" />
@@ -216,81 +231,93 @@
                   </div>
                   <div class="metric-value-wrapper">
                       <span class="metric-value" id="result-bodywater"></span>
-                      <span class="metric-unit">lbs</span>
+                      <span class="metric-unit">%</span>
                   </div>
                 </div>
               </div>
-            </div>
+            
           </div>
         
         </div>
 
       </div>
 
+      <!-- Second results section (fitness prediction) loads on model complete after loading message is hidden -->
       <div class="results-container" id="fitness-results">
         
         <div class="model-predictions"> 
         
-          <h2 class="metrics-title">Workout Prediction</h2>
+          <h2 class="metrics-title">Basic Body Data Prediction</h2>
 
-          <!-- Info Icon: https://commons.wikimedia.org/wiki/File:Circle_info_blue.svg -->
-          <div class="metrics-grid">
-            <div class="metrics-row">
-              <div class="metric-column">
-                  <div class="metric-card">
-                  <div class="metric-header">
-                      <span class="metric-title">Best Workout Type</span>
-                      <a href="./model.html" class="tooltip">
-                        <span class="tooltiptext">See ML Model Description</span>
-                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout type" />
-                      </a>    
-                  </div>
-                  <div class="metric-value-wrapper">
-                      <span class="metric-value" id="result-fitnesstype"></span>   
-                  </div>
-                </div>
-              </div>
+          <div class="fitness-predictions">
+
+            <div class="fitness-grid">
               
-              <div class="metric-column">
-                <div class="metric-card">
-                  <div class="metric-header">
-                      <span class="metric-title">Best Workout Duration</span>
-                      <a href="./model.html" class="tooltip">
-                        <span class="tooltiptext">See ML Model Description</span>
-                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout duration" />
-                      </a>  
-                  </div>
-                  <div class="metric-value-wrapper">
-                      <span class="metric-value" id="result-fitnessduration"></span>
-                      <span class="metric-unit">min</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="metrics-row">
-              <div class="metric-column">
-                <div class="metric-card">
-                  <div class="metric-header">
-                      <span class="metric-title">Best Workout Frequency</span>
-                      <a href="./model.html" class="tooltip">
-                        <span class="tooltiptext">See ML Model Description</span>
-                        <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout frequency" />
-                      </a>   
-                  </div>
-                  <div class="metric-value-wrapper">
-                      <span class="metric-value" id="result-fitnessfreq"></span>
-                      <span class="metric-unit">times/wk</span>
+                <!-- Results and title for ideal workout type prediction -->
+                <div class="metric-column">
+                  <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Best Workout Type</span>
+                        <a href="./model.html" class="tooltip">
+                          <span class="tooltiptext">See ML Model Description</span>
+                          <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout type" />
+                        </a>    
+                    </div>
+                    <div class="metric-value-wrapper">
+                        <span class="metric-value" id="result-fitnesstype"></span>   
+                    </div>
                   </div>
                 </div>
-              </div>
 
+                <!-- Results and title for ideal workout duration prediction -->
+                <div class="metric-column">
+                  <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Best Workout Duration</span>
+                        <a href="./model.html" class="tooltip">
+                          <span class="tooltiptext">See ML Model Description</span>
+                          <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout duration" />
+                        </a>  
+                    </div>
+                    <div class="metric-value-wrapper">
+                        <span class="metric-value" id="result-fitnessduration"></span>
+                        <span class="metric-unit">hrs</span>
+                    </div>
+                  </div>
+                </div>        
+
+                <!-- Results and title for ideal workout frequencty -->
+                <div class="metric-column">
+                  <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-title">Best Workout Frequency</span>
+                        <a href="./model.html" class="tooltip">
+                          <span class="tooltiptext">See ML Model Description</span>
+                          <img src="./assets/info.png" class="metric-icon" alt="Additional information for recommended workout frequency" />
+                        </a>   
+                    </div>
+                    <div class="metric-value-wrapper">
+                        <span class="metric-value" id="result-fitnessfreq"></span>
+                        <span class="metric-unit">times/wk</span>
+                    </div>
+                  </div>
+                </div>
+              
             </div>
-        
+
+            <!-- Icon that is programatically added based on recommended workout type. Filled using pyscript -->
+            <div class="metric-column image-card" id="fitnesstype-icon"></div>
+
+          </div>
+
         </div>
 
       </div>
 
+      <!-- Run the Python script linked from PyScript -->
       <script type="py" src="./Model.py" config="./pyscript.json"></script>
+
+    </div>
 
   </body>
 

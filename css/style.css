@@ -526,34 +526,6 @@ select option:disabled {
     font-size: 24px;
 }
 
-/* .unit-selector {
-    border-radius: 25px;
-    background-color: rgba(169, 220, 241, 1);
-    display: flex;
-    margin-top: 29px;
-    padding-left: 67px;
-    gap: 20px;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 1);
-    font-weight: 500;
-    text-align: center;
-    justify-content: space-between;
-}
-
-
-
-.unit-option {
-    margin: auto 0;
-}
-
-.unit-active {
-    border-radius: 25px;
-    background-color: rgba(72, 152, 255, 1);
-    padding: 11px 36px;
-    border: 3px solid rgba(169, 220, 241, 1);
-} */
-
-
 .overview-container {
     display: flex;
     margin-top: 45px;
@@ -644,13 +616,6 @@ margin-left: 20px;
     display: none;
 }
 
-
-
-
-
-
-
-
 .metrics-title {
     color: rgba(72, 72, 72, 1);
     text-align: center;
@@ -660,25 +625,36 @@ margin-left: 20px;
 
 .metrics-grid {
     margin-top: 1%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto); /* CHATGPT */
+    width: 1/3%;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow (from ChatGPT)     */
+    gap: 2%;
 }
 
 .fitness-grid {
-    display: flex;
-    flex-direction: row;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 66%;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow (from ChatGPT)     */
+    gap: 2%;
 }
 
-.metrics-row {
-    gap: 20px;
+.fitness-predictions {
     display: flex;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    flex-direction: row;
+    width: 100%;
 }
 
 .metric-column {
     display: flex;
     flex-direction: column;
     line-height: normal;
-    width: 33%;
+    width: 100%;
+    margin: 2%;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow (from ChatGPT)     */
 }
 
 .metric-card {
@@ -692,10 +668,14 @@ margin-left: 20px;
     flex-direction: column;
     font-family: Noto Sans, sans-serif;
     color: rgba(255, 255, 255, 1);
-    padding: 23px 22px;
+    padding: 7%;
     border: 3px solid rgba(169, 220, 241, 1);
     justify-content: space-between;
     box-sizing: border-box; /* Ensures padding doesn't cause overflow (from ChatGPT)     */
+}
+
+.image-card {
+    width: 30%;
 }
 
 .metric-header {
@@ -724,6 +704,7 @@ margin-left: 20px;
     gap: 10px;
     white-space: nowrap;
     justify-content: flex-end;
+    margin-top: 15%;
 }
 
 .metric-value {

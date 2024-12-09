@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
   <head>
 
     <!-- Set Webpage Title and Icon (Favicon)-->
@@ -10,14 +11,13 @@
     <!-- Webpage Setup-->
     <meta charset="UTF-8">
 
-    <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
+    <!-- Links (1) CSS (2) External Libraries, Fonts, Etc.-->
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
   </head>
 
-  <!-- Main Page of My Portfolio Website-->
+  <!-- About Page of FitPredict Website-->
   <body>
 
     <!-- Header of the Webpage. Includes title and navigation-->
@@ -31,26 +31,24 @@
       </div>
 
       <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections-->
-        <nav class="nav-content">
-          <div class="nav-menu" role="navigation">
-            <a href="./predict_input.html" class="nav-link">Predict</a>
-            <a href="./about.html" class="nav-link nav-item-active">About</a>
-            <a href="./model.html" class="nav-link">ML Model</a>
-            <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
-            <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
-          </div>
-        </nav>
+      <nav class="nav-content">
+        <div class="nav-menu" role="navigation">
+          <a href="./predict_input.html" class="nav-link">Predict</a>
+          <a href="./about.html" class="nav-link nav-item-active">About</a>
+          <a href="./model.html" class="nav-link">ML Model</a>
+          <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
+          <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
+        </div>
+      </nav>
+
     </header>
 
     <!-- Display informational image -->
     <div id="aboutLogoImage">
-      <img
-        src="./assets/about logo.png"
-        class="about-image"
-        alt="Information Text"
-      />
+      <img src="./assets/about logo.png" class="about-image" alt="Information Text about the FitPredict model"/>
     </div>
   
+    <!-- Display Model About Description -->
     <div id="aboutInfoText">
       <p class="description-text">
         FitPredict is a health website that empowers users to understand their body
@@ -80,8 +78,10 @@
       </p>
     </div>
 
+    <!-- Display Stats about the model -->
     <div class="stats-container">
       
+      <!-- List dataset size -->
       <div class="stat-item">
         <span class="stat-label">model is trained on</span>
         <span class="stat-value">6,400+</span>
@@ -89,6 +89,7 @@
 
       <div class="divider"></div>
 
+      <!-- List female precision rate -->
       <div class="stat-item">
         <span class="stat-label">female precision rate</span>
         <span class="stat-value">85%</span>
@@ -96,6 +97,7 @@
 
       <div class="divider"></div>
 
+      <!-- List male precision rate -->
       <div class="stat-item">
         <span class="stat-label">male precision rate</span>
         <span class="stat-value">73%</span>
@@ -107,4 +109,5 @@
     <a class="predict-button" href="./predict_input.html">Start Predicting</a>
 
   </body>
+
 </html>

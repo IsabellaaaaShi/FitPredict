@@ -1,131 +1,152 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
   <head>
 
-    <!-- Set Webpage Title and Icon (Favicon)-->
+    <!-- Set Webpage Title and Icon (Favicon) -->
     <title>FitPredict</title>
     <link rel="icon" type="image/x-icon" href="./assets/report logi.png">
 
-    <!-- Webpage Setup-->
+    <!-- Webpage Setup -->
     <meta charset="UTF-8">
 
-    <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
+    <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc. -->
+    <script defer type="module" src="js/predict_input.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
   </head>
 
-  <!-- Main Page of My Portfolio Website-->
+  <!-- Main Page of My Portfolio Website -->
   <body>
 
-    <!-- Header of the Webpage. Includes title and navigation-->
+    <!-- Header of the Webpage. Includes title and navigation -->
     <header class="nav-header">
       
-      <!-- Set the logo of the webpage, that will direct back to the index.html main page-->
+      <!-- Set the logo of the webpage, that will direct back to the index.html main page -->
       <div class = "brand-logo">
         <a href="./index.html">
           <img src="./assets/header logo.png" alt="FitPredict logo, clicking takes to home page" class="brand-logo">
         </a>
       </div>
 
-      <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections-->
-        <nav class="nav-content">
-          <div class="nav-menu" role="navigation">
-            <a href="./predict_input.html" class="nav-link nav-item-active">Predict</a>
-            <a href="./about.html" class="nav-link">About</a>
-            <a href="./model.html" class="nav-link">ML Model</a>
-            <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
-            <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
-          </div>
-        </nav>
+      <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections -->
+      <nav class="nav-content">
+        <div class="nav-menu" role="navigation">
+          <a href="./predict_input.html" class="nav-link nav-item-active">Predict</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./model.html" class="nav-link">ML Model</a>
+          <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
+          <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
+        </div>
+      </nav>
 
     </header>
 
+    <!-- Setup a form to collect user input, send the results to the prediction output page -->
     <form id="modelInputForm" action="./predict_output.html" method="GET">
     
+      <!-- Setup styling for background/border of the input form -->
       <div class="survey-container">
 
-        <!-- -->
+        <!-- Setup a "progress bar" that shows what stage of the prediction you are in (in this case, the input) -->
         <div class="input-progress-container">
           <div class="tab-active">General Information</div>
           <p class="dash">----------------</p>
           <div class="tab-inactive">Body Report</div>
         </div>
-        
-        <!--
+
+        <!-- Setup first user input section, the unit selection -->
         <div class="input-section">
 
-            <div class="input-header">
-              (1) Select The Measurement Unit
-              <span class="required">*</span>
-            </div>  
-
-            <div class="measurement-wrapper">
-
-            </div>
-
-        </div>
-         -->
-
-        <!-- https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only --> 
-        <div class="input-section">
-
+          <!-- Section Title -->
           <div class="input-header">
-            (1) Basic Information About You
+            (1) Select the Unit Information
             <span class="required">*</span>
           </div>
           
+          <!-- Required. Use a select element to choose between metric and imperial -->
+          <div class="info-wrapper">
+            <label for="unit" class="form-label">Units</label>
+            <select id="unit" name="unit" class="input-field" required>
+              <option value="" disabled selected>Select Units</option> <!-- Consulted with ChatGPT to generate method for having a placeholder text -->
+              <option value="metric">Metric</option>
+              <option value="imperial">Imperial</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Setup second user input section, the basic information selection -->
+        <div class="input-section">
+
+          <!-- Section Title -->
+          <div class="input-header">
+            (2) Basic Information About You
+            <span class="required">*</span>
+          </div>
+
+          <!-- Wrap the input fields -->
           <div class="info-wrapper">
 
+            <!-- Consult internet for how to set boundaries for the input -->
+            <!-- https://stackoverflow.com/questions/19233415/how-to-make-type-number-to-positive-numbers-only --> 
+
+            <!-- Required. Use a select element to choose between male and female -->
             <label for="sex" class="form-label">Sex</label>
             <select id="sex" name="sex" class="input-field" required>
-              <option value="" disabled selected>Select your sex</option> <!-- Solution from ChatGPT -->
+              <option value="" disabled selected>Select your sex</option> <!-- Consulted with ChatGPT to generate method for having a placeholder text -->
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
     
+            <!-- Required. Use an input field for user to input their age. min 0. integer number -->
             <label for="age" class="form-label">Age</label>
-            <input type="number" id="age" name="age" class="input-field" required placeholder="years"min="0"/>
+            <input type="number" id="age" name="age" class="input-field" required placeholder="years" min="0"/>
     
+            <!-- Required. Use an input field for user to input weight. Placeholder defaults to metric (kgs) but is changed in js to (lbs), min 0, decimal number -->
             <label for="weight" class="form-label">Weight</label>
             <input inputmode = "decimal" id="weight" name="weight" class="input-field" required placeholder="kgs" min="0"/>
     
-            <label for="height" class="form-label">Height</label>
-            <input inputmode = "decimal" id="height" name="height" class="input-field" placeholder="m" required min="0"/>
-<!-- 
-            <label for="height" class="form-label">Height</label>
-            <div class="height-field" id="height">
+            <!-- Required. Use an input field for user to input height. This is the metric field (m). it is hidden if imperial units are chosen. min 0. decimal number -->
+            <label for="height-metric" class="form-label" id="metric-label">Height</label>
+            <input inputmode = "decimal" id="height-metric" name="height-metric" class="input-field" placeholder="m" required min="0"/>
+
+            <!-- Required. Use an input field for user to input height. This is the imperial field (ft, in). it is hidden if metric units are chosen. min 0. max 11 on inches. decimal number -->
+            <label for="height-imperial" class="form-label" id="imperial-label">Height</label>
+            <div class="height-field" id="height-imperial">
               <input type="number" id="height-feet" name="height-feet" placeholder="ft" required min="0"/>
               <input type="number" id="height-inches" name="height-inches" placeholder="in" required min="0" max="11"/>
             </div>
--->
-          </div>
-        </div>
-    
-        <div class="input-section">
-          <div class="input-header">
-            (2) Optional Information About You
+
           </div>
 
+        </div>
+    
+        <!-- Setup third user input section, the nickname entry (optional) -->
+        <div class="input-section">
+
+          <!-- Section Title -->
+          <div class="input-header">
+            (3) Optional Information About You
+          </div>
+
+          <!-- Input field for user to input a nickname. If nothing is input, then the js and py scripts address user anonymously. Optional-->
           <div class ="nickname-wrapper">
             <label for="nickname" class="form-label">Nickname</label>
             <input type="text" id="nickname" name="nickname" class="input-field" placeholder="Anonymous User" />
           </div>
+          
         </div>
     
+        <!-- Have a submit button for the form. The element takes care of submitting to the output page as set above -->
         <button type="submit" class="submit-button">Submit</button>
 
       </div>
+
     </form>
 
   </body>
-</html>
 
-
-
-
-
-
-    
+</html>  

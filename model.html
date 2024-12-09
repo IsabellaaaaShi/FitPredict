@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
   <head>
 
     <!-- Set Webpage Title and Icon (Favicon)-->
@@ -10,14 +11,13 @@
     <!-- Webpage Setup-->
     <meta charset="UTF-8">
 
-    <!-- Links (1) CSS (2) JS (3) External Libraries, Fonts, Etc.-->
+    <!-- Links (1) CSS (2) External Libraries, Fonts, Etc.-->
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
   </head>
 
-  <!-- Main Page of My Portfolio Website-->
+  <!-- Model Info Page of FitPredict Website-->
   <body>
 
     <!-- Header of the Webpage. Includes title and navigation-->
@@ -31,26 +31,24 @@
       </div>
 
       <!-- Navigation Bar including "Predict", "About", "ML Model", and "Contact Us", and "Demo" Sections-->
-        <nav class="nav-content">
-          <div class="nav-menu" role="navigation">
-            <a href="./predict_input.html" class="nav-link">Predict</a>
-            <a href="./about.html" class="nav-link">About</a>
-            <a href="./model.html" class="nav-link nav-item-active">ML Model</a>
-            <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
-            <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
-          </div>
-        </nav>
+      <nav class="nav-content">
+        <div class="nav-menu" role="navigation">
+          <a href="./predict_input.html" class="nav-link">Predict</a>
+          <a href="./about.html" class="nav-link">About</a>
+          <a href="./model.html" class="nav-link nav-item-active">ML Model</a>
+          <a href="mailto:yaorans@andrew.cmu.edu" target="_blank" class="nav-link">Contact Us</a>
+          <a class="demo-button" href="https://www.youtube.com/" target="_blank">Demo</a>
+        </div>
+      </nav>
+
     </header>
 
-    <!-- Display informational image -->
+    <!-- Display FitPredict Logo Image -->
     <div id="aboutLogoImage">
-      <img
-        src="./assets/about logo.png"
-        class="about-image"
-        alt="Information Text"
-      />
+      <img src="./assets/about logo.png" class="about-image" alt="FitPredict Logo"/>
     </div>
   
+    <!-- Describe the model dataset -->
     <div class="dataset-description">
       <span class="text-bold">The Dataset</span>
       <br />
@@ -61,13 +59,15 @@
       </span>
     </div>
   
+    <!-- Display Model Results Graph Image -->
     <img src="./assets/Body Fat Percentage Distribution.png" alt="Dataset Distribution Graph" class="distribution-image" />
     <span class="distribution-title">Dataset Distribution</span>
   
+    <!-- Describe the model training and results -->
     <div class="model-description">
 
+      <!-- Title and text for model type description -->
       <span class="text-bold">The Model</span>
-
       <br />
       <span class="text-normal">
         A Random Forest Regressor was used to train scikit-learn models for
@@ -81,22 +81,21 @@
         making it a reliable choice for real-world datasets.
       </span>
 
+      <!-- Title and text for body fat prediction methodology -->
       <br /><br />
       <span class="text-bold">Body Fat Prediction</span>
-
       <br />
       <span class="text-normal">
         For body fat prediction, the model achieves an overall R² of 0.89, indicating high accuracy. For males, it explains 73% of the variance in body fat (R² = 0.73) with a Mean Absolute Error (MAE) of 2.25. For females, the R² improves to 0.85, and the MAE is lower at 1.82, demonstrating better performance for predicting body fat in women.
       </span>
-
       <br />
       <span class="text-normal">
         The predictions were most influenced by gender (weight = 0.46), followed by weight (0.34), age (0.11), and height (0.10), indicating that gender and weight are the strongest predictors of body fat percentage.
       </span>
 
+      <!-- Title and text for body metric prediction methodology -->
       <br /><br />
       <span class="text-bold">Other Metric Calculation</span>
-
       <br />
       <span class="text-normal">
         Referencing reliable research paper equations, the other body metrics are calculated and displayed on the report page:
@@ -110,14 +109,13 @@
         </ul>
       </span>
 
+      <!-- Title and text for workout prediction methodology -->
       <br />
       <span class="text-bold">Workout Prediction</span>
-
       <br />
       <span class="text-normal">
         For workout metrics, the predictions were less accurate. Workout frequency and session duration had moderate R² scores of 0.34 and 0.52, indicating limited predictive reliability. Predicting workout type was particularly challenging, with low precision and recall across categories and an overall accuracy of 23%, reflecting the difficulty in distinguishing workout types using the available features.
       </span>
-
       <br />
       <span class="text-normal">
         For workout metrics, the importance of features varied across prediction tasks:
@@ -127,10 +125,12 @@
           <li><strong>Workout Session Duration:</strong> Body fat percentage (0.63) was again the strongest predictor, followed by weight (0.14), height (0.11), and age (0.11), with gender (0.008) having negligible influence.</li>
         </ul>
       </span>
+      
     </div>
 
     <!-- Navigate to the Predict Page with Simple Button -->
     <a class="predict-button" href="./predict_input.html">Start Predicting</a>
 
   </body>
+
 </html>

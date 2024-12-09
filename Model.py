@@ -1,3 +1,4 @@
+# Import pyscript related items to manipulate the DOM based on the following documentation:
 # https://docs.pyscript.net/2024.11.1/user-guide/dom/
 from pyscript import window, document
 
@@ -5,12 +6,12 @@ from pyscript import window, document
 # https://docs.pyscript.net/2024.11.1/user-guide/dom/#working-with-javascript
 from pyscript.js_modules import outputScript
 
+# Access the DOM elements to programatially change the visibility of the output page sections
 loading_el = document.querySelector("#loading-screen")
 result_el = document.querySelector("#model-results")
 fitness_el = document.querySelector("#fitness-results")
 
-
-# Try to ignore warnings (known error in pyscript)
+# Try to ignore warnings. known error in pyscript described at:
 # https://github.com/pandas-dev/pandas/issues/54466
 import warnings
 with warnings.catch_warnings():
@@ -22,14 +23,13 @@ with warnings.catch_warnings():
     import pandas as pd
 warnings.filterwarnings("ignore")
 
-
+# Import necessarily libraries. Also configured in the json file
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import numpy as np
-
 
 def model_init():
     print("initializing model")
@@ -127,12 +127,31 @@ def predict_user_metrics(user_data):
     return predicted_body_fat, predicted_workout_type, predicted_workout_frequency, predicted_session_duration
 
 # User Input
-print("Enter your details to predict metrics:")
-user_name = outputScript.nickname #"test" #input("Please enter your name: ").strip()
-user_gender = outputScript.sex #"male" #input("Gender (Male/Female): ").strip().lower()
-user_age = int(outputScript.age) #int(50)) #int(input("Age: "))
-user_weight = float(outputScript.weight) #float(50) #float(input("Weight (kg): "))
-user_height = float(outputScript.height) #float(1.8) #float(input("Height (m): "))
+# print("Enter your details to predict metrics:")
+
+# Gather user input by accessing the javascript specified in the json file
+user_units = outputScript.unit
+user_name = outputScript.nickname #input("Please enter your name: ").strip()
+user_gender = outputScript.sex #input("Gender (Male/Female): ").strip().lower()
+user_age = int(outputScript.age) #int(input("Age: "))
+user_weight = float(outputScript.weight) #float(input("Weight (kg): "))
+
+# Set placeholder heights of 0. to be set based on user unit selection
+user_height = 0
+user_height_m = 0
+user_height_ft = 0
+user_height_in = 0
+
+# If metric, set the user height variable equal to the url height parameter.
+# If imperial, conver the feet and inches to meters, and lbs to kgs
+if user_units == "metric":
+    user_height = float(outputScript.height_m) #float(input("Height (m): "))
+elif user_units == "imperial":
+    user_height_ft = float(outputScript.height_ft)
+    user_height_in = float(outputScript.height_in)
+    # Convert to Metric units for input to the model
+    user_height = ((user_height_ft*12)+user_height_in)* 0.0254
+    user_weight = user_weight * 0.453592
 
 # Encode gender input
 user_gender_encoded = 0 if user_gender == 'male' else 1
@@ -175,7 +194,6 @@ user_body_water_percentage = calculate_body_water_percentage(user_weight,user_fa
 user_bmr = calculate_bmr(user_weight, user_height, user_age, user_gender)
 
 # Output Results
-
 print(f"\nHi {user_name}, here are your predicted metrics:")
 print(f"Body Fat Percentage: {predicted_body_fat:.2f}%")
 print(f"Your BMI: {user_bmi}")
@@ -195,10 +213,13 @@ print("\nSimilar examples from our training data:")
 for idx, row in similar_examples.iterrows():
     print(f"- Gender: {row['Gender']}, Age: {row['Age']}, Weight: {row['Weight']} kg, Height: {row['Height']} m → Body Fat: {row['Body Fat Percentage']:.2f}%")
 
+# Update the DOM based on the results 
 
+# First remove gif from the loading gif
 loading_element = document.querySelector("#loading-gif")
 loading_element.remove()
 
+# Display the user results
 bodyfatpercent_element = document.querySelector("#result-bodyfatpercent")
 bodyfatpercent_element.innerText = f"{predicted_body_fat:.2f}"
 
@@ -226,7 +247,23 @@ fitnesstime_element.innerText = f"{predicted_session_duration:.2f}"
 fitnessfreq_element = document.querySelector("#result-fitnessfreq")
 fitnessfreq_element.innerText = predicted_workout_frequency
 
+fitnesstypeicon_element = document.querySelector("#fitnesstype-icon")
+fitnessicon = document.createElement('img')
 
+# Change the fitness image based on the recommended fitness type
+if decoded_workout_type == 'CARDIO':
+    fitnessicon.src = "./assets/workout icon/CARDIO.png"
+elif decoded_workout_type == 'HIIT':
+    fitnessicon.src = "./assets/workout icon/HIIT.png"
+elif decoded_workout_type == 'STRENGTH':
+    fitnessicon.src = "./assets/workout icon/STRENGTH.png"
+elif decoded_workout_type == 'YOGA':
+    fitnessicon.src = "./assets/workout icon/YOGA.png"
+
+# Add the fitness icon to the DOM
+fitnesstypeicon_element.appendChild(fitnessicon)
+
+# Hide the loading message section, show the results section
 loading_el.classList.add("hidden")
 result_el.classList.remove("hidden")
 fitness_el.classList.remove("hidden")
