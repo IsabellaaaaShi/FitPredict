@@ -134,7 +134,7 @@ user_units = outputScript.unit
 user_name = outputScript.nickname #input("Please enter your name: ").strip()
 user_gender = outputScript.sex #input("Gender (Male/Female): ").strip().lower()
 user_age = int(outputScript.age) #int(input("Age: "))
-user_weight = float(outputScript.weight) #float(input("Weight (kg): "))
+user_weight = float(outputScript.weight)
 
 # Set placeholder heights of 0. to be set based on user unit selection
 user_height = 0
@@ -187,18 +187,26 @@ def calculate_bmr(weight, height, age, gender):
         return round(447.593 + (9.247 * weight) + (3.098 * height * 100) - (4.330 * age), 2)
 
 # Calculate Metrics
-user_bmi = calculate_bmi(user_weight, user_height)
 user_body_fat_weight = calculate_body_fat_weight(user_weight, predicted_body_fat)
-user_fat_free_body_weight = calculate_fat_free_body_weight(user_weight, user_body_fat_weight)
+user_fat_free_body_weight = calculate_fat_free_body_weight(user_weight, user_body_fat_weight) #user_weight is still metric, so convert output to imperial
 user_body_water_percentage = calculate_body_water_percentage(user_weight,user_fat_free_body_weight)
+user_bmi = calculate_bmi(user_weight, user_height)
 user_bmr = calculate_bmr(user_weight, user_height, user_age, user_gender)
 
 # Output Results
 print(f"\nHi {user_name}, here are your predicted metrics:")
 print(f"Body Fat Percentage: {predicted_body_fat:.2f}%")
 print(f"Your BMI: {user_bmi}")
-print(f"Body Fat Weight: {user_body_fat_weight} kg")
-print(f"Fat-Free Body Weight: {user_fat_free_body_weight} kg")
+
+# Output results with weight measurements. Change based on unit selection
+if user_units == "metric":
+    print(f"Body Fat Weight: {user_body_fat_weight} kg")
+    print(f"Fat-Free Body Weight: {user_fat_free_body_weight} kg")
+elif user_units == "imperial":
+    print(f"Body Fat Weight: {round(user_body_fat_weight* 2.20462, 2)} lbs")
+    print(f"Fat-Free Body Weight: {round(user_fat_free_body_weight* 2.20462, 2)} lbs")
+
+# Output the rest of the Results
 print(f"Body Water Percentage: {user_body_water_percentage:.2f}%")
 print(f"Basal Metabolic Rate (BMR): {user_bmr} kcal/day")
 print(f"Workout Type: {decoded_workout_type}")
@@ -224,10 +232,22 @@ bodyfatpercent_element = document.querySelector("#result-bodyfatpercent")
 bodyfatpercent_element.innerText = f"{predicted_body_fat:.2f}"
 
 bodyfatweight_element = document.querySelector("#result-bodyfatweight")
-bodyfatweight_element.innerText = user_body_fat_weight
+bodyfatweight_unit_element = document.querySelector("#result-bodyfatweight-unit")
 
 fatfreebodyweight_element = document.querySelector("#result-fatfreebodyweight")
-fatfreebodyweight_element.innerText = user_fat_free_body_weight
+fatfreebodyweight_unit_element = document.querySelector("#result-fatfreebodyweight-unit")
+
+# Change DOM units based on user input
+if user_units == "metric":
+    bodyfatweight_element.innerText = user_body_fat_weight
+    fatfreebodyweight_element.innerText = user_fat_free_body_weight
+    bodyfatweight_unit_element.innerText = "kg"
+    fatfreebodyweight_unit_element.innerText = "kg"
+elif user_units == "imperial":
+    bodyfatweight_element.innerText = round(user_body_fat_weight* 2.20462, 2)
+    fatfreebodyweight_element.innerText = round(user_fat_free_body_weight* 2.20462, 2)
+    bodyfatweight_unit_element.innerText = "lbs"
+    fatfreebodyweight_unit_element.innerText = "lbs"
 
 bmi_element = document.querySelector("#result-bmi")
 bmi_element.innerText = user_bmi

@@ -1,4 +1,8 @@
-/* Website Style Guide
+/* 
+Reference: CSS Largely Generated from Figma Conversion tool: 
+TOOL NAME: 
+
+Website Style Guide
 
 ---- COLOR DEFINITION ----
 Blue*:         #rgba(72, 152, 255, 1);
@@ -39,10 +43,6 @@ option {
     font-family: Noto Sans, sans-serif; 
 }
 
-/*----------------------------------------------------------------------------------------
-HOME PAGE
-----------------------------------------------------------------------------------------*/
-
 body {
     display: flex;
     flex-direction: column;
@@ -52,6 +52,39 @@ body {
     font-family: Noto Sans, sans-serif;
 }
 
+/*----------------------------------------------------------------------------------------
+REUSED ELEMENTS
+----------------------------------------------------------------------------------------*/
+.predict-button {
+    border-radius: 80px;
+    background-color: rgba(72, 152, 255, 1);
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+.about-image {
+    aspect-ratio: 4.05;
+    object-fit: contain;
+    object-position: center;
+    width: 449px;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.text-bold {
+    font-weight: 800;
+}
+
+/*----------------------------------------------------------------------------------------
+NAVIGATION BAR
+----------------------------------------------------------------------------------------*/
 .nav-header {
     background-color: transparent;
     display: flex;
@@ -134,29 +167,9 @@ body {
     width: 100%;
 }
 
-.about-image {
-    aspect-ratio: 4.05;
-    object-fit: contain;
-    object-position: center;
-    width: 449px;
-    margin-top: 20px;
-    max-width: 100%;
-}
-
-.predict-button {
-    border-radius: 80px;
-    background-color: rgba(72, 152, 255, 1);
-    align-self: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 20px;
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    padding: 20px;
-    cursor: pointer;
-    border: none;
-}
-
+/*----------------------------------------------------------------------------------------
+ABOUT PAGE 
+----------------------------------------------------------------------------------------*/
 .description-text {
     color: rgba(72, 72, 72, 1);
     font-size: 16px;
@@ -203,10 +216,9 @@ body {
     border: 1px solid rgba(72, 72, 72, 1);
 }
 
-.text-bold {
-    font-weight: 800;
-}
-
+/*----------------------------------------------------------------------------------------
+MODEL DESCRIPTION PAGE 
+----------------------------------------------------------------------------------------*/
 .dataset-description {
     font-size: 16px;
     line-height: 28px;
@@ -238,20 +250,9 @@ body {
     text-align: justify;
 }
 
-.model-load {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.model-load img {
-    aspect-ratio: 1;
-    width: 50px;
-    align-self: center;
-}
-
+/*----------------------------------------------------------------------------------------
+PREDICTION INPUT PAGE 
+----------------------------------------------------------------------------------------*/
 .survey-container {
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 1);
@@ -275,6 +276,7 @@ body {
     align-items: center;
     font: 500 16px Noto Sans, sans-serif;
 }
+
 .tab-active {
     border-radius: 60px;
     background-color: rgba(72, 152, 255, 1);
@@ -284,6 +286,7 @@ body {
     text-align: center;
     font-size: 20px;
 }
+
 .tab-inactive {
     border-radius: 60px;
     background-color: rgba(169, 220, 241, 1);
@@ -293,14 +296,13 @@ body {
     text-align: center;
     font-size: 20px;
 }
+
 .dash {
     font-size: 24px;
     color: rgba(169, 220, 241, 1);
     margin-left: 0px;
     margin-right: 0px;
 }
-
-
 
 .input-header {
     font-size: 18px;
@@ -310,43 +312,12 @@ body {
     margin: 0 24px;
 }
 
-.basic-info-section {
-    display: flex;
-    margin-top: 45px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 59px 80px;
-    border: 3px solid rgba(234, 242, 254, 1);
-}
-
-.info-wrapper {
-    display: flex;
-    width: 394px;
-    flex-direction: column;
-}
-
-.info-header {
-    align-self: center;
-    display: flex;
-    width: 305px;
-    gap: 8px;
-    color: rgba(72, 72, 72, 1);
-    font: 700 18px/1 Noto Sans, sans-serif;
-}
-
-.info-icon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    object-position: center;
-    width: 24px;
-    align-self: start;
-}
-
-.info-title {
-    flex-grow: 1;
-    width: 268px;
-    flex-basis: auto;
+.input-field {
+    border-radius: 5px;
+    margin-top: 6px;
+    height: auto;
+    border: 2px solid rgba(169, 220, 241, 1);
+    padding: 14px 39px;
 }
 
 .form-label {
@@ -356,13 +327,10 @@ body {
     font: 500 16px Noto Sans, sans-serif;
 }
 
-
-.input-field {
-    border-radius: 5px;
-    margin-top: 6px;
-    height: auto;
-    border: 2px solid rgba(169, 220, 241, 1);
-    padding: 14px 39px;
+.info-wrapper {
+    display: flex;
+    width: 394px;
+    flex-direction: column;
 }
 
 /* Select Styling with assistance from ChatGPT */
@@ -377,26 +345,13 @@ select option:disabled {
 }
 /* End ChatGPT help */
 
-.unit-label {
-    border-radius: 5px;
-    margin-top: 6px;
-    color: rgba(217, 217, 217, 1);
-    text-align: right;
-    padding: 6px 39px;
-    font: 500 16px Noto Sans, sans-serif;
-    border: 2px solid rgba(169, 220, 241, 1);
-}
-
-
 .height-field {
-    border-radius: 5px;
-    margin-top: 6px;
-    height: auto;
-    border: 2px solid rgba(169, 220, 241, 1);
     display: flex;
     flex-direction: row;
+    margin-top: 6px;
+    height: auto;
+    gap: 1%;
 }
-
 
 #height-feet, #height-inches {
     width: 50%;
@@ -404,44 +359,10 @@ select option:disabled {
     margin: 0px;
 }
 
-.additional-info-section {
-    display: flex;
-    margin-top: 45px;
-    flex-direction: column;
-    align-items: center;
-    color: rgba(72, 72, 72, 1);
-    justify-content: center;
-    padding: 54px 80px;
-    font: 500 16px Noto Sans, sans-serif;
-    border: 3px solid rgba(234, 242, 254, 1);
-}
-
 .nickname-wrapper {
     display: flex;
     width: 394px;
     flex-direction: column;
-}
-
-.nickname-header {
-    align-self: center;
-    display: flex;
-    margin-left: 10px;
-    width: 321px;
-    gap: 6px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.nickname-title {
-    flex-grow: 1;
-    width: 286px;
-    flex-basis: auto;
-}
-
-.nickname-label {
-    align-self: start;
-    margin-top: 25px;
 }
 
 .submit-button {
@@ -461,18 +382,6 @@ select option:disabled {
     font-size: 20px;
 }
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 .input-section {
     display: flex;
     margin-top: 45px;
@@ -489,41 +398,26 @@ select option:disabled {
     color: red; 
 }
 
-.measurement-section {
-    display: flex;
-    margin-top: 45px;
-    flex-direction: column;
-    align-items: center;
-    font-family: Noto Sans, sans-serif;
-    justify-content: center;
-    padding: 53px 80px;
-    border: 3px solid rgba(234, 242, 254, 1);
-}
-
-.measurement-wrapper {
-    display: flex;
-    width: 360px;
-    flex-direction: column;
-}
-
-.unit-option {
-    display: hidden;
-}
-
-.unit-option label {
-    display: inline-block;
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    margin-left: 32px;
-}
-
+/*----------------------------------------------------------------------------------------
+PREDICTION OUTPUT PAGE 
+----------------------------------------------------------------------------------------*/
 .load-message {
     font-family: Noto Sans, sans-serif;
     font-size: 24px;
+}
+
+.model-load {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.model-load img {
+    aspect-ratio: 1;
+    width: 50px;
+    align-self: center;
 }
 
 .overview-container {
@@ -539,51 +433,50 @@ select option:disabled {
 }
 
 .user-info-column {
-display: flex;
-flex-direction: column;
-line-height: normal;
-width: 40%
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 40%
 }
 
 .welcome-container {
-display: flex;
-flex-direction: column;
-font-family: Noto Sans, sans-serif;
-color: rgba(72, 72, 72, 1);
-
+    display: flex;
+    flex-direction: column;
+    font-family: Noto Sans, sans-serif;
+    color: rgba(72, 72, 72, 1);
 }
 
 .welcome-heading {
-font: 700 32px/1 Noto Sans, sans-serif;
+    font: 700 32px/1 Noto Sans, sans-serif;
 }
 
 .disclaimer-text {
-font: 400 14px/24px Noto Sans, sans-serif;
-margin-top: 10px;
-text-align: justify;
+    font: 400 14px/24px Noto Sans, sans-serif;
+    margin-top: 10px;
+    text-align: justify;
 }
 
 .avatar-column {
-display: flex;
-flex-direction: column;
-line-height: normal;
-width: 20%
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 20%
 }
 
 .user-avatar {
-aspect-ratio: 0.92;
-object-fit: contain;
-object-position: center;
-width: 190px;
-margin-top: 63px;
+    aspect-ratio: 0.92;
+    object-fit: contain;
+    object-position: center;
+    width: 190px;
+    margin-top: 63px;
 }
 
 .stats-column {
-display: flex;
-flex-direction: column;
-line-height: normal;
-width: 20%;
-margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 20%;
+    margin-left: 20px;
 }
 
 .user-input-container {
@@ -719,8 +612,6 @@ margin-left: 20px;
     line-height: 24px;
     align-self: start;
 }
-
-
 
 /* Start Tutorial Code from: */
 /* https://www.w3schools.com/css/css_tooltip.asp */
